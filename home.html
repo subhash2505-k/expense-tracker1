@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SpendWise - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            💰 SpendWise
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#transactions">Transactions</a>
+            <a href="#budget">Budget</a>
+        </nav>
+
+        <button class="logout-button" onclick="logout()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main id="dashboard">
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <div>
+                <p class="small-title">STUDENT EXPENSE TRACKER</p>
+
+                <h1>
+                    Good morning! 👋
+                </h1>
+
+                <p>
+                    Here's your financial overview for this month.
+                </p>
+            </div>
+
+            <button class="add-expense" onclick="openExpenseForm()">
+                + Add Expense
+            </button>
+
+        </section>
+
+
+        <!-- SUMMARY CARDS -->
+
+        <section class="summary">
+
+            <div class="summary-card balance">
+
+                <div class="summary-top">
+                    <span>Total Balance</span>
+                    <span class="summary-icon">💳</span>
+                </div>
+
+                <h2 id="balance">₹15,250</h2>
+
+                <p>Available balance</p>
+
+            </div>
+
+
+            <div class="summary-card income">
+
+                <div class="summary-top">
+                    <span>Total Income</span>
+                    <span class="summary-icon">📈</span>
+                </div>
+
+                <h2 id="income">₹20,000</h2>
+
+                <p>This month</p>
+
+            </div>
+
+
+            <div class="summary-card expense">
+
+                <div class="summary-top">
+                    <span>Total Expenses</span>
+                    <span class="summary-icon">📉</span>
+                </div>
+
+                <h2 id="expenses">₹4,750</h2>
+
+                <p>This month</p>
+
+            </div>
+
+
+            <div class="summary-card budget">
+
+                <div class="summary-top">
+                    <span>Budget Left</span>
+                    <span class="summary-icon">🎯</span>
+                </div>
+
+                <h2 id="budgetLeft">₹5,250</h2>
+
+                <p>Monthly budget</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT -->
+
+        <section class="dashboard-grid">
+
+            <!-- RECENT TRANSACTIONS -->
+
+            <div class="transactions card-box" id="transactions">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Recent Transactions</h2>
+                        <p>Your latest expenses</p>
+                    </div>
+
+                    <button onclick="showAllTransactions()">
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div id="transactionList">
+
+                    <div class="transaction">
+
+                        <div class="transaction-icon food">
+                            🍔
+                        </div>
+
+                        <div class="transaction-info">
+                            <h3>Food</h3>
+                            <p>Today • 01:30 PM</p>
+                        </div>
+
+                        <strong class="negative">
+                            - ₹180
+                        </strong>
+
+                    </div>
+
+
+                    <div class="transaction">
+
+                        <div class="transaction-icon transport">
+                            🚌
+                        </div>
+
+                        <div class="transaction-info">
+                            <h3>Transport</h3>
+                            <p>Yesterday • 08:20 AM</p>
+                        </div>
+
+                        <strong class="negative">
+                            - ₹60
+                        </strong>
+
+                    </div>
+
+
+                    <div class="transaction">
+
+                        <div class="transaction-icon study">
+                            📚
+                        </div>
+
+                        <div class="transaction-info">
+                            <h3>Study Materials</h3>
+                            <p>Sep 1 • 04:10 PM</p>
+                        </div>
+
+                        <strong class="negative">
+                            - ₹450
+                        </strong>
+
+                    </div>
+
+
+                    <div class="transaction">
+
+                        <div class="transaction-icon entertainment">
+                            🎬
+                        </div>
+
+                        <div class="transaction-info">
+                            <h3>Entertainment</h3>
+                            <p>Aug 30 • 07:30 PM</p>
+                        </div>
+
+                        <strong class="negative">
+                            - ₹250
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPENSE BREAKDOWN -->
+
+            <div class="card-box">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Spending</h2>
+                        <p>This month's breakdown</p>
+                    </div>
+
+                </div>
+
+
+                <div class="spending-item">
+
+                    <div class="spending-name">
+                        <span>🍔 Food</span>
+                        <strong>₹1,850</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 70%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="spending-item">
+
+                    <div class="spending-name">
+                        <span>🚌 Transport</span>
+                        <strong>₹850</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 45%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="spending-item">
+
+                    <div class="spending-name">
+                        <span>📚 Education</span>
+                        <strong>₹1,200</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 55%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="spending-item">
+
+                    <div class="spending-name">
+                        <span>🎬 Entertainment</span>
+                        <strong>₹850</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width: 35%;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUDGET -->
+
+        <section class="budget-section" id="budget">
+
+            <div class="card-box budget-box">
+
+                <div>
+
+                    <p class="small-title">
+                        MONTHLY BUDGET
+                    </p>
+
+                    <h2>₹10,000</h2>
+
+                    <p>
+                        You have spent ₹4,750 this month.
+                    </p>
+
+                </div>
+
+                <div class="budget-circle">
+                    <strong>47%</strong>
+                    <span>Used</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ADD EXPENSE MODAL -->
+
+    <div class="modal" id="expenseModal">
+
+        <div class="modal-content">
+
+            <button class="close-button" onclick="closeExpenseForm()">
+                ×
+            </button>
+
+            <h2>Add Expense</h2>
+
+            <p>Add a new transaction to your account.</p>
+
+            <form id="expenseForm">
+
+                <label>Expense Name</label>
+
+                <input
+                    type="text"
+                    id="expenseName"
+                    placeholder="Example: Lunch"
+                    required
+                >
+
+
+                <label>Amount</label>
+
+                <input
+                    type="number"
+                    id="expenseAmount"
+                    placeholder="₹ Amount"
+                    required
+                >
+
+
+                <label>Category</label>
+
+                <select id="expenseCategory">
+
+                    <option>🍔 Food</option>
+                    <option>🚌 Transport</option>
+                    <option>📚 Education</option>
+                    <option>🎬 Entertainment</option>
+                    <option>🛍 Shopping</option>
+                    <option>💡 Other</option>
+
+                </select>
+
+
+                <button type="submit" class="save-expense">
+                    Save Expense
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>© 2026 SpendWise • Student Expense Tracker</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
